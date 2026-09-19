@@ -13,6 +13,7 @@ def agregar_elemento(lista, elemento):
 
 
 def probar_paso_de_parametros():
+    """Req. 8: muestra que un número se copia y una lista se modifica al pasarlos a una función."""
     edad = 20
     print(f"Antes de llamar a la función   : edad = {edad}")
     nueva_edad = sumar_un_anio(edad)
@@ -32,6 +33,7 @@ def contar_solicitudes(solicitudes):
 
 
 def probar_alcance():
+    """Req. 9: muestra que una variable local no existe fuera de su función."""
     solicitudes = ["S1", "S2", "S3"]  # variable local de probar_alcance (hace de "programa principal")
     total = contar_solicitudes(solicitudes)
     print(f"Solicitudes registradas: {total}")
