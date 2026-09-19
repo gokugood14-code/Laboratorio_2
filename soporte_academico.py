@@ -56,3 +56,13 @@ def asignar_prioridad(tipo):
     else:
         prioridad = "Baja"
     return prioridad
+
+
+def mostrar_resumen(solicitud):
+    """Req. 7: muestra en pantalla el resumen de una solicitud registrada."""
+    print("--- Resumen de la solicitud ---")
+    print(f"Código      : {solicitud['codigo']}")
+    print(f"Nombre      : {solicitud['nombre']}")
+    print(f"Tipo        : {solicitud['tipo']}")
+    print(f"Descripción : {solicitud['descripcion']}")
+    print(f"Prioridad   : {solicitud['prioridad']}")
