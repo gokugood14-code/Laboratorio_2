@@ -10,3 +10,10 @@ def registrar_solicitud(codigo, nombre, tipo, descripcion):
         "descripcion": descripcion.strip(),
     }
     return solicitud
+
+def mostrar_menu():
+    """Req. 4: muestra el menú principal (función sin retorno)."""
+    print("\n === SOPORTE ACADÉMICO ===")
+    print("1. Registrar solicitud")
+    print("2. Ver solicitudes registradas")
+    print("3. Salir")
