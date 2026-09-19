@@ -2,12 +2,13 @@
 import unicodedata
 
 def registrar_solicitud(codigo, nombre, tipo, descripcion):
-    """Req. 1: arma la solicitud con los datos básicos y la devuelve."""
+    """Req. 1 y 5: arma la solicitud (con su prioridad) y la devuelve."""
     solicitud = {
         "codigo": codigo.strip(),
         "nombre": nombre.strip(),
-        "tipo": tipo.strip().lower(),
+        "tipo": normalizar_texto(tipo),
         "descripcion": descripcion.strip(),
+        "prioridad": asignar_prioridad(tipo),
     }
     return solicitud
 
@@ -43,3 +44,15 @@ def validar_texto_obligatorio(texto):
     """Req. 6: True si el texto tiene contenido (no está vacío ni solo con espacios)."""
     texto_limpio = texto.strip()
     return texto_limpio != ""
+
+
+def asignar_prioridad(tipo):
+    """Req. 5: devuelve "Alta", "Media" o "Baja" según el tipo de consulta."""
+    tipo_normalizado = normalizar_texto(tipo)
+    if tipo_normalizado in ("plataforma", "matricula"):
+        prioridad = "Alta"
+    elif tipo_normalizado == "pagos":
+        prioridad = "Media"
+    else:
+        prioridad = "Baja"
+    return prioridad
