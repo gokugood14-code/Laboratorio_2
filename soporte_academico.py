@@ -37,3 +37,9 @@ def validar_tipo_consulta(tipo, tipos_validos):
     """Req. 3: True si el tipo de consulta pertenece a la lista básica."""
     tipo_normalizado = normalizar_texto(tipo)
     return tipo_normalizado in tipos_validos
+
+
+def validar_texto_obligatorio(texto):
+    """Req. 6: True si el texto tiene contenido (no está vacío ni solo con espacios)."""
+    texto_limpio = texto.strip()
+    return texto_limpio != ""
