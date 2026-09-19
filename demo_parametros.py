@@ -25,5 +25,23 @@ def probar_paso_de_parametros():
     print(f"Después de llamar a la función : solicitudes = {solicitudes}   (la lista original sí cambió)")
 
 
+def contar_solicitudes(solicitudes):
+    """'cantidad' es una variable LOCAL: solo existe mientras corre esta función."""
+    cantidad = len(solicitudes)
+    return cantidad
+
+
+def probar_alcance():
+    solicitudes = ["S1", "S2", "S3"]  # variable local de probar_alcance (hace de "programa principal")
+    total = contar_solicitudes(solicitudes)
+    print(f"Solicitudes registradas: {total}")
+    try:
+        print(cantidad)  # 'cantidad' NO existe aquí: pertenece a contar_solicitudes
+    except NameError:
+        print("cantidad no existe fuera de contar_solicitudes (alcance local)")    
+
+
 if __name__ == "__main__":
     probar_paso_de_parametros()
+    print("\n--- Alcance de variables ---")
+    probar_alcance()
